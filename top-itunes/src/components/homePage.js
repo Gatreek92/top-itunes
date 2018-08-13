@@ -3,7 +3,9 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-        <h1>hello this is home page</h1>
+        <h1>Welcome to top-itunes !</h1>
+        <p>Your best way to discover top albums on itunes.</p>
+        <button>Start</button>
       </div>
     );
   }
