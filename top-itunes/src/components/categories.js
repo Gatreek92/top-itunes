@@ -3,14 +3,29 @@ import React, { Component } from "react";
 class Categories extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      categoriesList: [],
+      allCategories: []
+    };
+  }
+  componentDidMount() {
+    let tempCategories = this.props.categoriesList.concat();
+    tempCategories = tempCategories.filter((Element, pos, arr) => {
+      return arr.indexOf(Element) === pos;
+    });
+    this.setState({
+      categoriesList: tempCategories,
+      allCategories: this.props.categoriesList
+    });
   }
 
   render() {
     return (
       <div>
         <ul>
-          <li>list of Categories here</li>
+          {this.state.categoriesList.map((category, key) => {
+            return <li key={key}>{category}</li>;
+          })}
         </ul>
       </div>
     );
