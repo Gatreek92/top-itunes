@@ -1,18 +1,28 @@
 import React, { Component } from "react";
+import Categories from "./categories";
+import { Link } from "react-router-dom";
+
 class TopAlbums extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      albums: []
+    };
+  }
   render() {
     return (
       <div>
-        <h2>Top {this.props.category} Albums </h2>
+        <div>
+          <Link to="/">
+            <button>Back home</button>
+          </Link>
+        </div>
+        <h1>Top 100 Albums on itunes right now : </h1>
         <ul>
-          {this.props.albums
-            .filter((Element, pos, arr) => {
-              return Element.category.attributes.term === this.props.category;
-            })
-            .map((album, key) => {
-              console.log("albumm", album);
-              return <li key={key}>Album name : {album.title.label}</li>;
-            })}
+          See only : <Categories TopAlbums={this.state.albums} />
+        </ul>
+        <ul>
+          <li>albums here</li>
         </ul>
       </div>
     );
