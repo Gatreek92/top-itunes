@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 class Categories extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +18,10 @@ class Categories extends Component {
     );
   }
   render() {
+    this.state.fetched &&
+      ((this.listOfCategories = this.state.data.entry.map((entry, key) => {
+        return entry.category.attributes.term;
+      }))
     return (
       <div>
         <h2>Choose your category: </h2>
