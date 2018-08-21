@@ -32,6 +32,15 @@ class TopAlbums extends Component {
         })
     );
   }
+
+  selectCategory = e => {
+    let tempAlbums = this.state.data.entry.concat();
+    tempAlbums = tempAlbums.filter(
+      (Element, pos, arr) => Element.category.attributes.term === e
+    );
+    this.setState({ albums: tempAlbums });
+  };
+
   render() {
     return (
       <div>
@@ -44,8 +53,18 @@ class TopAlbums extends Component {
         {this.state.fetched && (
           <div>
             <ul>
-              See only : <Categories categoriesList={this.state.categories} />
+              See only :{" "}
+              <Categories
+                categoriesList={this.state.categories}
+                selectCategory={this.selectCategory}
+              />
             </ul>
+            <a
+              href="#"
+              onClick={() => this.setState({ albums: this.state.data.entry })}
+            >
+              See all albums
+            </a>
             <ul>
               {this.state.albums.map((album, key) => (
                 <Album data={album} key={key} />

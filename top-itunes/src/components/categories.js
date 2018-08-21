@@ -24,7 +24,13 @@ class Categories extends Component {
       <div>
         <ul>
           {this.state.categoriesList.map((category, key) => {
-            return <li key={key}>{category}</li>;
+            return (
+              <li key={key}>
+                <a href="#" onClick={() => this.props.selectCategory(category)}>
+                  {category}
+                </a>
+              </li>
+            );
           })}
         </ul>
       </div>
