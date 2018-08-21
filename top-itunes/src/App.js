@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route path="/" component={HomePage} />
+          <Route exact path="/" component={HomePage} />
           <Route path="/topAlbums" component={TopAlbums} />
         </div>
       </Router>
