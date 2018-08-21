@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Category from "./category";
 class Categories extends Component {
   constructor(props) {
     super(props);
@@ -29,6 +29,15 @@ class Categories extends Component {
     return (
       <div>
         <h2>Choose your category: </h2>
+        <ul>
+          {this.listOfCategories.map((category, key) => {
+            return (
+              <li key={key}>
+                <Category name={category} />
+              </li>
+            );
+          })}
+        </ul>
       </div>
     );
   }
