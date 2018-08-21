@@ -6,8 +6,29 @@ class TopAlbums extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      albums: []
+      data: null,
+      albums: [],
+      categories: [],
+      fetched: false
     };
+  }
+  componentDidMount() {
+    fetch("https://itunes.apple.com/us/rss/topalbums/limit=100/json").then(
+      res =>
+        res.json().then(data => {
+          this.setState(
+            {
+              data: data.feed,
+              albums: data.feed.entry,
+              categories: data.feed.entry.map(
+                album => album.category.attributes.term
+              ),
+              fetched: true
+            },
+            () => console.log("this.state.categories", this.state.categories)
+          );
+        })
+    );
   }
   render() {
     return (
@@ -18,12 +39,16 @@ class TopAlbums extends Component {
           </Link>
         </div>
         <h1>Top 100 Albums on itunes right now : </h1>
-        <ul>
-          See only : <Categories TopAlbums={this.state.albums} />
-        </ul>
-        <ul>
-          <li>albums here</li>
-        </ul>
+        {this.state.fetched && (
+          <div>
+            <ul>
+              See only : <Categories categoriesList={this.state.categories} />
+            </ul>
+            <ul>
+              <li>albums here</li>
+            </ul>
+          </div>
+        )}
       </div>
     );
   }
