@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Categories from "./categories";
+import Album from "./album";
+
 import { Link } from "react-router-dom";
 
 class TopAlbums extends Component {
@@ -25,7 +27,7 @@ class TopAlbums extends Component {
               ),
               fetched: true
             },
-            () => console.log("this.state.categories", this.state.categories)
+            () => console.log("this.state.albums", this.state.albums)
           );
         })
     );
@@ -45,7 +47,9 @@ class TopAlbums extends Component {
               See only : <Categories categoriesList={this.state.categories} />
             </ul>
             <ul>
-              <li>albums here</li>
+              {this.state.albums.map((album, key) => (
+                <Album data={album} key={key} />
+              ))}
             </ul>
           </div>
         )}
