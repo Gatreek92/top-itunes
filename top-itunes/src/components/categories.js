@@ -19,9 +19,13 @@ class Categories extends Component {
   }
   render() {
     this.state.fetched &&
-      ((this.listOfCategories = this.state.data.entry.map((entry, key) => {
-        return entry.category.attributes.term;
-      }))
+      (this.listOfCategories = this.state.data.entry
+        .map((entry, key) => {
+          return entry.category.attributes.term;
+        })
+        .filter((Element, pos, arr) => {
+          return arr.indexOf(Element) === pos;
+        }));
     return (
       <div>
         <h2>Choose your category: </h2>
