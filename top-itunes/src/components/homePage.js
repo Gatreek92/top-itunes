@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Link, Route } from "react-router-dom";
-import Categories from "./categories.js";
+import { Link } from "react-router-dom";
 
 class HomePage extends Component {
   render() {
@@ -9,11 +8,10 @@ class HomePage extends Component {
         <div>
           <h1>Welcome to top-itunes !</h1>
           <p>Your best way to discover top albums on itunes.</p>
-          <Link to="/categories">
+          <Link to="/topAlbums">
             <h2>Lets Go !</h2>
           </Link>
         </div>
-        <Route path="/categories" component={Categories} />
       </div>
     );
   }
