@@ -43,7 +43,7 @@ class TopAlbums extends Component {
 
   render() {
     return (
-      <div>
+      <div style={styles.container}>
         <div>
           <Link to="/">
             <button>Back home</button>
@@ -53,7 +53,7 @@ class TopAlbums extends Component {
         {this.state.fetched && (
           <div>
             <ul>
-              See only :{" "}
+              See only :
               <Categories
                 categoriesList={this.state.categories}
                 selectCategory={this.selectCategory}
@@ -76,4 +76,11 @@ class TopAlbums extends Component {
     );
   }
 }
+const styles = {
+  container: {
+    backgroundColor: "#487eb0",
+    color: "white",
+    minHeight: "100%"
+  }
+};
 export default TopAlbums;
