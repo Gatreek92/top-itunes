@@ -21,7 +21,9 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    height: "100%"
+    height: "100%",
+    backgroundColor: "#487eb0",
+    color: "white"
   },
   homepage: {
     //flex: 1
