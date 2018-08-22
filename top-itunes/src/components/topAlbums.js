@@ -49,7 +49,9 @@ class TopAlbums extends Component {
             <button>Back home</button>
           </Link>
         </div>
-        <h1>Top 100 Albums on itunes right now : </h1>
+        <h1 style={{ textAlign: "center" }}>
+          Top 100 Albums on itunes right now :{" "}
+        </h1>
         {this.state.fetched && (
           <div>
             <ul>
