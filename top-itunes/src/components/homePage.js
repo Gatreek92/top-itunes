@@ -6,12 +6,12 @@ class HomePage extends Component {
     return (
       <div style={styles.container}>
         <div style={styles.homepage}>
-          <h1>Welcome to top-itunes !</h1>
-          <p>Your best way to discover top albums on itunes.</p>
+          <div style={{ textAlign: "center" }}>
           <Link to="/topAlbums">
-            <h2>Lets Go !</h2>
+              <button style={styles.button}>Lets Go !</button>
           </Link>
         </div>
+      </div>
       </div>
     );
   }
@@ -25,8 +25,17 @@ const styles = {
     backgroundColor: "#487eb0",
     color: "white"
   },
-  homepage: {
-    //flex: 1
+  button: {
+    fontFamily: "Metamorphous",
+    backgroundColor: "#e84118",
+    color: "white",
+    border: "none",
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingTop: 5,
+    paddingBottom: 5,
+    display: "inline-block",
+    cursor: "pointer"
   }
 };
 export default HomePage;
