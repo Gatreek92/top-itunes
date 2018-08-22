@@ -6,12 +6,14 @@ class HomePage extends Component {
     return (
       <div style={styles.container}>
         <div style={styles.homepage}>
+          <h1 style={{ textAlign: "center" }}>Welcome to top-itunes !</h1>
+          <p>Your best way to discover top albums of the moment on itunes.</p>
           <div style={{ textAlign: "center" }}>
-          <Link to="/topAlbums">
+            <Link to="/topAlbums">
               <button style={styles.button}>Lets Go !</button>
-          </Link>
+            </Link>
+          </div>
         </div>
-      </div>
       </div>
     );
   }
