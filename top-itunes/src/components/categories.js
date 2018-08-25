@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import injectSheet from "react-jss";
 class Categories extends Component {
   constructor(props) {
     super(props);
@@ -20,15 +20,18 @@ class Categories extends Component {
   }
 
   render() {
+    const { classes } = this.props;
     return (
       <div>
-        <ul>
+        <ul className={classes.listContainer}>
           {this.state.categoriesList.map((category, key) => {
             return (
-              <li key={key}>
-                <a href="#" onClick={() => this.props.selectCategory(category)}>
-                  {category}
-                </a>
+              <li
+                className={classes.listItem}
+                key={key}
+                onClick={() => this.props.selectCategory(category)}
+              >
+                {category}
               </li>
             );
           })}
@@ -37,4 +40,20 @@ class Categories extends Component {
     );
   }
 }
-export default Categories;
+const styles = {
+  listContainer: {
+    display: "flex",
+    flexWrap: "wrap"
+  },
+  listItem: {
+    padding: 5,
+    color: "#fbc531",
+    backgroundColor: "white",
+    cursor: "pointer",
+    marginRight: 5,
+    marginTop: 5,
+    listStyle: "none",
+    "&:hover": { backgroundColor: "#fbc531", color: "white" }
+  }
+};
+export default injectSheet(styles)(Categories);
