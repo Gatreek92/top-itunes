@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Categories from "./categories";
 import Album from "./album";
-
+import injectSheet from "react-jss";
 import { Link } from "react-router-dom";
 
 class TopAlbums extends Component {
@@ -42,32 +42,33 @@ class TopAlbums extends Component {
   };
 
   render() {
+    const { classes } = this.props;
     return (
-      <div style={styles.container}>
+      <div className={classes.container}>
         <div>
           <Link to="/">
             <button>Back home</button>
           </Link>
         </div>
-        <h1 style={{ textAlign: "center" }}>
-          Top 100 Albums on itunes right now :{" "}
-        </h1>
+        <h1 className={classes.title}>Top 100 Albums on itunes right now : </h1>
         {this.state.fetched && (
           <div>
             <ul>
-              See only :
+              <h2> See only : </h2>
               <Categories
                 categoriesList={this.state.categories}
                 selectCategory={this.selectCategory}
               />
             </ul>
-            <a
-              href="#"
-              onClick={() => this.setState({ albums: this.state.data.entry })}
-            >
-              See all albums
-            </a>
+
             <ul>
+              <a
+                style={{ color: "white" }}
+                href="#"
+                onClick={() => this.setState({ albums: this.state.data.entry })}
+              >
+                <h2> See all albums </h2>
+              </a>
               {this.state.albums.map((album, key) => (
                 <Album data={album} key={key} />
               ))}
@@ -83,6 +84,9 @@ const styles = {
     backgroundColor: "#487eb0",
     color: "white",
     minHeight: "100%"
+  },
+  title: {
+    textAlign: "center"
   }
 };
-export default TopAlbums;
+export default injectSheet(styles)(TopAlbums);
