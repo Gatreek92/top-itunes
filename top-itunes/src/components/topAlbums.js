@@ -61,14 +61,14 @@ class TopAlbums extends Component {
               />
             </ul>
 
-            <ul>
-              <a
-                style={{ color: "white" }}
-                href="#"
-                onClick={() => this.setState({ albums: this.state.data.entry })}
-              >
-                <h2> See all albums </h2>
-              </a>
+            <a
+              style={{ color: "white" }}
+              href="#"
+              onClick={() => this.setState({ albums: this.state.data.entry })}
+            >
+              <h2> See all albums </h2>
+            </a>
+            <ul className={classes.albumsContainer}>
               {this.state.albums.map((album, key) => (
                 <Album data={album} key={key} />
               ))}
@@ -87,6 +87,11 @@ const styles = {
   },
   title: {
     textAlign: "center"
+  },
+  albumsContainer: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-between"
   }
 };
 export default injectSheet(styles)(TopAlbums);
