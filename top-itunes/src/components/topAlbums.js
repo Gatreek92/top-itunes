@@ -64,7 +64,8 @@ class TopAlbums extends Component {
                   backgroundColor: "#fbc531",
                   color: "white",
                   padding: 5,
-                  marginTop: 5
+                  marginTop: 5,
+                  listStyle: "none"
                 }}
               >
                 <a
