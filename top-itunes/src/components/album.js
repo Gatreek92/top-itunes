@@ -1,11 +1,31 @@
 import React, { Component } from "react";
+import injectSheet from "react-jss";
 class Album extends Component {
   componentDidMount() {
     console.log("data", this.props.data);
   }
   render() {
-    return <li>{this.props.data.title.label}</li>;
+    const { classes } = this.props;
+    return (
+      <li className={classes.container}>
+        <a
+          href={this.props.data.link.attributes.href}
+          style={{ color: "white", textDecoration: "none" }}
+        >
+          <img src={this.props.data["im:image"][1].label} alt="image" />
+          <p>{this.props.data["im:price"].label}</p>
+          <p> {this.props.data.title.label}</p>
+          <p>{this.props.data["im:releaseDate"].attributes.label}</p>
+        </a>
+      </li>
+    );
   }
 }
-
-export default Album;
+const styles = {
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    flex: 1
+  }
+};
+export default injectSheet(styles)(Album);
