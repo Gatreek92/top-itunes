@@ -12,7 +12,7 @@ class Album extends Component {
           href={this.props.data.link.attributes.href}
           style={{ color: "white", textDecoration: "none" }}
         >
-          <img src={this.props.data["im:image"][1].label} alt="image" />
+          <img src={this.props.data["im:image"][2].label} alt="album image" />
           <p>{this.props.data["im:price"].label}</p>
           <p> {this.props.data.title.label}</p>
           <p>{this.props.data["im:releaseDate"].attributes.label}</p>
@@ -25,7 +25,8 @@ const styles = {
   container: {
     display: "flex",
     flexDirection: "column",
-    flex: 1
+    flex: 1,
+    padding: 10
   }
 };
 export default injectSheet(styles)(Album);
