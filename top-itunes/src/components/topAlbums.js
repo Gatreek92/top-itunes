@@ -47,7 +47,7 @@ class TopAlbums extends Component {
       <div className={classes.container}>
         <div>
           <Link to="/">
-            <button>Back home</button>
+            <button className={classes.backBtn}>&larr; Back home</button>
           </Link>
         </div>
         <h1 className={classes.title}>Top 100 Albums on itunes right now : </h1>
@@ -109,6 +109,12 @@ const styles = {
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "space-between"
+  },
+  backBtn: {
+    backgroundColor: "transparent",
+    border: "none",
+    color: "white",
+    cursor: "pointer"
   }
 };
 export default injectSheet(styles)(TopAlbums);
