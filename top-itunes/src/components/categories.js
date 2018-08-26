@@ -21,30 +21,20 @@ class Categories extends Component {
 
   render() {
     const { classes } = this.props;
-    return (
-      <div>
-        <ul className={classes.listContainer}>
-          {this.state.categoriesList.map((category, key) => {
-            return (
-              <li
-                className={classes.listItem}
-                key={key}
-                onClick={() => this.props.selectCategory(category)}
-              >
-                {category}
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    );
+    return this.state.categoriesList.map((category, key) => {
+      return (
+        <li
+          className={classes.listItem}
+          key={key}
+          onClick={() => this.props.selectCategory(category)}
+        >
+          {category}
+        </li>
+      );
+    });
   }
 }
 const styles = {
-  listContainer: {
-    display: "flex",
-    flexWrap: "wrap"
-  },
   listItem: {
     padding: 5,
     color: "#fbc531",

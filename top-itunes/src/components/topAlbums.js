@@ -53,21 +53,32 @@ class TopAlbums extends Component {
         <h1 className={classes.title}>Top 100 Albums on itunes right now : </h1>
         {this.state.fetched && (
           <div>
-            <ul>
-              <h2> See only : </h2>
+            <h2> See only : </h2>
+            <ul className={classes.categoriesContainer}>
               <Categories
                 categoriesList={this.state.categories}
                 selectCategory={this.selectCategory}
               />
+              <li
+                style={{
+                  backgroundColor: "#fbc531",
+                  color: "white",
+                  padding: 5,
+                  marginTop: 5
+                }}
+              >
+                <a
+                  style={{ color: "white" }}
+                  href="#"
+                  onClick={() =>
+                    this.setState({ albums: this.state.data.entry })
+                  }
+                >
+                  all albums
+                </a>
+              </li>
             </ul>
 
-            <a
-              style={{ color: "white" }}
-              href="#"
-              onClick={() => this.setState({ albums: this.state.data.entry })}
-            >
-              <h2> See all albums </h2>
-            </a>
             <ul className={classes.albumsContainer}>
               {this.state.albums.map((album, key) => (
                 <Album data={album} key={key} />
@@ -87,6 +98,10 @@ const styles = {
   },
   title: {
     textAlign: "center"
+  },
+  categoriesContainer: {
+    display: "flex",
+    flexWrap: "wrap"
   },
   albumsContainer: {
     display: "flex",
