@@ -26,7 +26,12 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     flex: 1,
-    padding: 10
+    padding: 10,
+    marginRight: 10,
+    border: "1px solid",
+    alignItems: "center",
+    justifyContent: "center",
+    maxWidth: 235
   }
 };
 export default injectSheet(styles)(Album);
