@@ -24,7 +24,6 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     height: "100%",
-    backgroundColor: "#487eb0",
     color: "white"
   },
   button: {

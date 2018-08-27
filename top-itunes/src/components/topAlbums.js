@@ -93,7 +93,6 @@ class TopAlbums extends Component {
 }
 const styles = {
   container: {
-    backgroundColor: "#487eb0",
     color: "white",
     minHeight: "100%",
     padding: 10

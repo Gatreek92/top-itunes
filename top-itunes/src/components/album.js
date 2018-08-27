@@ -32,7 +32,8 @@ const styles = {
     justifyContent: "center",
     textAlign: "center",
     maxWidth: 235,
-    boxShadow: " 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)"
+    boxShadow: " 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)",
+    backgroundColor: "#487eb0"
   }
 };
 export default injectSheet(styles)(Album);
