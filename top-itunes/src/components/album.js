@@ -28,6 +28,7 @@ const styles = {
     flex: 1,
     padding: 10,
     marginRight: 10,
+    marginBottom: 10,
     justifyContent: "center",
     textAlign: "center",
     maxWidth: 235,
