@@ -106,7 +106,8 @@ const styles = {
   },
   albumsContainer: {
     display: "flex",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    padding: 0
   },
   backBtn: {
     backgroundColor: "transparent",
