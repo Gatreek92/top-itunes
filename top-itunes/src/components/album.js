@@ -33,7 +33,13 @@ const styles = {
     textAlign: "center",
     maxWidth: 235,
     boxShadow: " 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)",
-    backgroundColor: "#487eb0"
+    backgroundColor: "#487eb0",
+    "&:hover": {
+      transform: "scale(1.1)",
+      background: "rgb(251,197,49)",
+      background:
+        "linear-gradient(354deg, rgba(251,197,49,1) 0%, rgba(72,72,176,1) 70%)"
+    }
   }
 };
 export default injectSheet(styles)(Album);
