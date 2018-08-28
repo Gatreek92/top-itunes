@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Categories from "./categories";
 import Album from "./album";
-
+import injectSheet from "react-jss";
 import { Link } from "react-router-dom";
 
 class TopAlbums extends Component {
@@ -42,30 +42,45 @@ class TopAlbums extends Component {
   };
 
   render() {
+    const { classes } = this.props;
     return (
-      <div>
+      <div className={classes.container}>
         <div>
           <Link to="/">
-            <button>Back home</button>
+            <button className={classes.backBtn}>&larr; Back home</button>
           </Link>
         </div>
-        <h1>Top 100 Albums on itunes right now : </h1>
+        <h1 className={classes.title}>Top 100 Albums on itunes right now : </h1>
         {this.state.fetched && (
           <div>
-            <ul>
-              See only :{" "}
+            <h2> See only : </h2>
+            <ul className={classes.categoriesContainer}>
               <Categories
                 categoriesList={this.state.categories}
                 selectCategory={this.selectCategory}
               />
+              <li
+                style={{
+                  backgroundColor: "#fbc531",
+                  color: "white",
+                  padding: 5,
+                  marginTop: 5,
+                  listStyle: "none"
+                }}
+              >
+                <a
+                  style={{ color: "white" }}
+                  href="#"
+                  onClick={() =>
+                    this.setState({ albums: this.state.data.entry })
+                  }
+                >
+                  all albums
+                </a>
+              </li>
             </ul>
-            <a
-              href="#"
-              onClick={() => this.setState({ albums: this.state.data.entry })}
-            >
-              See all albums
-            </a>
-            <ul>
+
+            <ul className={classes.albumsContainer}>
               {this.state.albums.map((album, key) => (
                 <Album data={album} key={key} />
               ))}
@@ -76,4 +91,29 @@ class TopAlbums extends Component {
     );
   }
 }
-export default TopAlbums;
+const styles = {
+  container: {
+    color: "white",
+    minHeight: "100%",
+    padding: 10
+  },
+  title: {
+    textAlign: "center"
+  },
+  categoriesContainer: {
+    display: "flex",
+    flexWrap: "wrap"
+  },
+  albumsContainer: {
+    display: "flex",
+    flexWrap: "wrap",
+    padding: 0
+  },
+  backBtn: {
+    backgroundColor: "transparent",
+    border: "none",
+    color: "white",
+    cursor: "pointer"
+  }
+};
+export default injectSheet(styles)(TopAlbums);
