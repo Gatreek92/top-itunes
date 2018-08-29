@@ -1,5 +1,20 @@
+@import url("https://fonts.googleapis.com/css?family=Metamorphous");
+html,
+body,
+#root,
+#root > div {
+  height: 100%;
+}
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #21d4fd;
+  background: linear-gradient(90deg, #1cb5e0 0%, #000851 100%);
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Metamorphous", cursive;
 }
