@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Categories from "./categories";
 import Album from "./album";
 import injectSheet from "react-jss";
+import Spinner from "react-spinkit";
 import { Link } from "react-router-dom";
 
 class TopAlbums extends Component {
@@ -45,47 +46,54 @@ class TopAlbums extends Component {
     const { classes } = this.props;
     return (
       <div className={classes.container}>
-        <div>
-          <Link to="/">
-            <button className={classes.backBtn}>&larr; Back home</button>
-          </Link>
-        </div>
-        <h1 className={classes.title}>Top 100 Albums on itunes right now : </h1>
-        {this.state.fetched && (
+        {this.state.fetched ? (
           <div>
-            <h2> See only : </h2>
-            <ul className={classes.categoriesContainer}>
-              <Categories
-                categoriesList={this.state.categories}
-                selectCategory={this.selectCategory}
-              />
-              <li
-                style={{
-                  backgroundColor: "#fbc531",
-                  color: "white",
-                  padding: 5,
-                  marginTop: 5,
-                  listStyle: "none"
-                }}
-              >
-                <a
-                  style={{ color: "white" }}
-                  href="#"
-                  onClick={() =>
-                    this.setState({ albums: this.state.data.entry })
-                  }
-                >
-                  all albums
-                </a>
-              </li>
-            </ul>
+            <div>
+              <Link to="/">
+                <button className={classes.backBtn}>&larr; Back home</button>
+              </Link>
+            </div>
+            <h1 className={classes.title}>
+              Top 100 Albums on itunes right now :{" "}
+            </h1>
 
-            <ul className={classes.albumsContainer}>
-              {this.state.albums.map((album, key) => (
-                <Album data={album} key={key} />
-              ))}
-            </ul>
+            <div>
+              <h2> See only : </h2>
+              <ul className={classes.categoriesContainer}>
+                <Categories
+                  categoriesList={this.state.categories}
+                  selectCategory={this.selectCategory}
+                />
+                <li
+                  style={{
+                    backgroundColor: "#fbc531",
+                    color: "white",
+                    padding: 5,
+                    marginTop: 5,
+                    listStyle: "none"
+                  }}
+                >
+                  <a
+                    style={{ color: "white" }}
+                    href="#"
+                    onClick={() =>
+                      this.setState({ albums: this.state.data.entry })
+                    }
+                  >
+                    all albums
+                  </a>
+                </li>
+              </ul>
+
+              <ul className={classes.albumsContainer}>
+                {this.state.albums.map((album, key) => (
+                  <Album data={album} key={key} />
+                ))}
+              </ul>
+            </div>
           </div>
+        ) : (
+          <Spinner name="ball-grid-pulse" color="goldenrod" />
         )}
       </div>
     );
@@ -93,6 +101,9 @@ class TopAlbums extends Component {
 }
 const styles = {
   container: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     color: "white",
     minHeight: "100%",
     padding: 10
