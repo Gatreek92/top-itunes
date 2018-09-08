@@ -98,6 +98,9 @@ class TopAlbums extends Component {
 }
 const styles = {
   container: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     color: "white",
     minHeight: "100%",
     padding: 10,
